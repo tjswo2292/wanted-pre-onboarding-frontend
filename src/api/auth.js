@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import { createInstance } from "./create";
+import { client } from "./client";
 
 export const signUpApi = async (email, password) => {
-  return await createInstance.post("/auth/signup", { email, password });
+  return await client.post("/auth/signup", { email, password });
 };
