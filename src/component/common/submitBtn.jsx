@@ -2,8 +2,12 @@
 import React from "react";
 import ShareStyle from "./shareStyle";
 
-const SubmitBtn = ({ text, disabled }) => {
-  return <ShareStyle.submitBtn disabled={disabled}>{text}</ShareStyle.submitBtn>;
+const SubmitBtn = ({ text, disabled, testId }) => {
+  return (
+    <ShareStyle.submitBtn disabled={disabled} data-testid={testId}>
+      {text}
+    </ShareStyle.submitBtn>
+  );
 };
 
 export default SubmitBtn;
