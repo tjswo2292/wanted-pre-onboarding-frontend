@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import ShareStyle from "../../common/shareStyle";
 const SignUpStyle = {
   Wrapper: styled.div`
     padding: 0.9375rem 0.625rem;
@@ -7,8 +7,13 @@ const SignUpStyle = {
     height: auto;
     border: 1px solid #e1e2e3;
     border-radius: 4px;
+    background-color: #fff;
   `,
   Container: styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: auto;
   `,
   titleBox: styled.div`
@@ -23,6 +28,9 @@ const SignUpStyle = {
     flex-direction: column;
     align-items: center;
     margin-top: 1.25rem;
+  `,
+  SignInBtn: styled(ShareStyle.submitBtn)`
+    margin-top: 1rem;
   `,
 };
 
