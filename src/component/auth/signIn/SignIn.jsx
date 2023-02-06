@@ -6,6 +6,7 @@ import { emailValidation, pwValidation } from "../../../utillity/SignUpValidatio
 import SignUpStyle from "../signUp/signUpStyle";
 import ShareInput from "../../common/shareInput";
 import SubmitBtn from "../../common/submitBtn";
+import Redirect from "../../Redirect";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -16,6 +17,12 @@ const Login = () => {
   });
 
   useEffect(() => {
+    if (localStorage.getItem("token")) {
+      navigate("/todo");
+    }
+  }, []);
+
+  useEffect(() => {
     emailValidation(userInfo.email) && pwValidation(userInfo.password)
       ? setIsUserInfo(true)
       : setIsUserInfo(false);
@@ -24,7 +31,8 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signInApi(userInfo.email, userInfo.password).then(() => {
+      await signInApi(userInfo.email, userInfo.password).then((res) => {
+        localStorage.setItem("token", res.data.access_token);
         navigate("/todo");
       });
     } catch (error) {
@@ -63,7 +71,7 @@ const Login = () => {
             type="password"
             testId="password-input"
           />
-          <SubmitBtn text="로그인" testId="signin-button" />
+          <SubmitBtn disabled={!isUserInfo} text="로그인" testId="signin-button" />
         </SignUpStyle.Form>
         <SignUpStyle.SignInBtn onClick={handleSignUpNavi}>회원가입</SignUpStyle.SignInBtn>
       </SignUpStyle.Container>
