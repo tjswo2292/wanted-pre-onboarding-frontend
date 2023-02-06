@@ -53,7 +53,7 @@ const SignUp = () => {
         <SignUpStyle.Form onSubmit={handleSubmit}>
           <ShareInput
             placeholder="이메일을 입력해 주세요"
-            type="email"
+            type="text"
             handleValue={handleEmail}
             testId="email-input"
           />
