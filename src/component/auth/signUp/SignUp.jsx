@@ -19,6 +19,12 @@ const SignUp = () => {
   });
 
   useEffect(() => {
+    if (localStorage.getItem("token")) {
+      navigate("/todo");
+    }
+  }, []);
+
+  useEffect(() => {
     emailValidation(userInfo.email) && pwValidation(userInfo.password)
       ? setIsUserInfo(true)
       : setIsUserInfo(false);
