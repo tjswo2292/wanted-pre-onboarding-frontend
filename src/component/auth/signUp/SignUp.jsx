@@ -12,13 +12,29 @@ import { signUpApi } from "../../../api/auth";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const [isEmail, setIsEmail] = useState(false);
-  const [isPassword, setIsPassword] = useState(false);
-
+  const [isUserInfo, setIsUserInfo] = useState(false);
   const [userInfo, setUserInfo] = useState({
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    emailValidation(userInfo.email) && pwValidation(userInfo.password)
+      ? setIsUserInfo(true)
+      : setIsUserInfo(false);
+  }, [userInfo]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await signUpApi(userInfo.email, userInfo.password).then(() => {
+        alert("회원가입 성공");
+        navigate("/");
+      });
+    } catch (error) {
+      alert("회원가입 실패!!");
+    }
+  };
 
   const handleEmail = (emailData) => {
     setUserInfo({ ...userInfo, email: emailData });
@@ -27,27 +43,6 @@ const SignUp = () => {
   const handlePw = (pwData) => {
     setUserInfo({ ...userInfo, password: pwData });
   };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await signUpApi(userInfo.email, userInfo.password).then(() => {
-        alert("회원가입 성공");
-        navigate("/signin");
-      });
-    } catch (error) {
-      alert("회원가입 실패!!");
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    emailValidation(userInfo.email) && setIsEmail(true);
-  }, [userInfo]);
-
-  useEffect(() => {
-    pwValidation(userInfo.password) && setIsPassword(true);
-  }, [userInfo]);
 
   return (
     <SignUpStyle.Wrapper>
@@ -58,7 +53,7 @@ const SignUp = () => {
         <SignUpStyle.Form onSubmit={handleSubmit}>
           <ShareInput
             placeholder="이메일을 입력해 주세요"
-            type="text"
+            type="email"
             handleValue={handleEmail}
             testId="email-input"
           />
@@ -68,7 +63,7 @@ const SignUp = () => {
             handleValue={handlePw}
             testId="password-input"
           />
-          <SubmitBtn text="회원가입" disabled={!(isEmail && isPassword)} />
+          <SubmitBtn text="회원가입" disabled={!isUserInfo} />
         </SignUpStyle.Form>
       </SignUpStyle.Container>
     </SignUpStyle.Wrapper>
