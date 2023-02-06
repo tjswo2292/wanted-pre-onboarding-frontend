@@ -4,6 +4,7 @@ import SignUp from "./component/auth/signUp/SignUp";
 import SignIn from "./component/auth/signIn/SignIn";
 import Todo from "./component/todo/Todo";
 import GlobalStyle from "./style/globalStyle";
+import { Redirect } from "./component/Redirect";
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
     >
       <GlobalStyle />
       <Routes>
-        <Route path="/" element={<SignIn />} />
+        <Route path="/" element={<Redirect />} />
+        <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/todo" element={<Todo />} />
       </Routes>
