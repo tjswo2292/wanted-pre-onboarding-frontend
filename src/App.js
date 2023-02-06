@@ -7,14 +7,22 @@ import GlobalStyle from "./style/globalStyle";
 
 function App() {
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        backgroundColor: "#888",
+      }}
+    >
       <GlobalStyle />
       <Routes>
-        <Route path="/" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/todo" element={<Todo />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
