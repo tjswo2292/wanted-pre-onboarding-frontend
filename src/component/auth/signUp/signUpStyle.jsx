@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ShareStyle from "../../common/shareStyle";
+
 const SignUpStyle = {
   Wrapper: styled.div`
     padding: 0.9375rem 0.625rem;
@@ -17,7 +18,6 @@ const SignUpStyle = {
     height: auto;
   `,
   titleBox: styled.div`
-    text-align: center;
     padding: 0.3125rem;
   `,
   title: styled.span`
