@@ -6,15 +6,17 @@ const TodoItem = ({ id, todo, isCompleted, getTodoList }) => {
   const [isEdit, setIsEdit] = useState(false);
   const [editContent, setEditContent] = useState("");
 
-  const handleUpdateTodo = async (isCompleted, id, todo) => {
+  const handleUpdateTodo = async (isCompleted, id, editContent) => {
     setIsEdit((prev) => !prev);
 
-    try {
-      await todoUpdateApi(isCompleted, id, todo).then((res) => {
-        getTodoList();
-      });
-    } catch (error) {
-      console.log(error);
+    if (editContent !== "") {
+      try {
+        await todoUpdateApi(isCompleted, id, editContent).then(() => {
+          getTodoList();
+        });
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
