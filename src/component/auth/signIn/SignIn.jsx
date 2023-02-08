@@ -6,7 +6,6 @@ import { emailValidation, pwValidation } from "../../../utillity/SignUpValidatio
 import SignUpStyle from "../signUp/signUpStyle";
 import ShareInput from "../../common/shareInput";
 import SubmitBtn from "../../common/submitBtn";
-import Redirect from "../../Redirect";
 
 const Login = () => {
   const navigate = useNavigate();
