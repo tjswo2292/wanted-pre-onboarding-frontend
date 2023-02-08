@@ -44,7 +44,6 @@ const todoStyle = {
     margin-top: 1rem;
     height: 20rem;
     overflow: scroll;
-    border: 1px solid #e1e2e3;
   `,
   list: styled.ul`
     display: flex;
@@ -57,7 +56,12 @@ const todoStyle = {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin-bottom: 1rem;
     border: 1px solid #e1e2e3;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   `,
   checkBox: styled.input``,
   contents: styled.p``,
