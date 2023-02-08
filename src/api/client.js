@@ -16,3 +16,12 @@ export const todoInstance = axios.create({
     "Content-Type": "application/json",
   },
 });
+
+todoInstance.interceptors.request.use((config) => {
+  const access_token = localStorage.getItem("token");
+
+  if (access_token && config.headers) {
+    config.headers["Authorization"] = `Bearer ${access_token}`;
+  }
+  return config;
+});
