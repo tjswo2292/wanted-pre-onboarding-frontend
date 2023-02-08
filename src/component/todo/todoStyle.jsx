@@ -81,6 +81,7 @@ const todoStyle = {
     color: #fff;
     border: none;
   `,
+  editTodoInput: styled.input``,
 };
 
 export default todoStyle;

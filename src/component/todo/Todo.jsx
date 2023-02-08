@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import TodoItem from "./TodoItem";
 import { useNavigate } from "react-router-dom";
-import { todoCreateApi, todoGetApi, todoUpdateApi, todoDeleteApi } from "../../api/authTodo";
+import { todoCreateApi, todoGetApi } from "../../api/authTodo";
 import T from "./todoStyle";
 
 const Todo = () => {
@@ -41,26 +41,6 @@ const Todo = () => {
     }
   };
 
-  const handleChecked = async (isComplete, id, todo) => {
-    try {
-      await todoUpdateApi(isComplete, id, todo).then((res) => {
-        getTodoList();
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleDeleteTodo = async (id) => {
-    try {
-      await todoDeleteApi(id).then(() => {
-        getTodoList();
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const handleTodoInput = (e) => {
     setTodoContent(e.target.value);
   };
@@ -86,20 +66,13 @@ const Todo = () => {
           <T.listBox>
             <T.list>
               {todoList.map(({ id, todo, isCompleted }) => (
-                <T.listItem key={id}>
-                  <T.checkBox
-                    onChange={(e) => handleChecked(e.target.checked, id, todo)}
-                    type="checkbox"
-                    checked={isCompleted}
-                  />
-                  <T.contents>{isCompleted ? <s>{todo}</s> : todo}</T.contents>
-                  <T.todoItemBtnBox>
-                    <T.updateBtn data-testid="modify-button">수 정</T.updateBtn>
-                    <T.deleteBtn onClick={() => handleDeleteTodo(id)} data-testid="delete-button">
-                      삭 제
-                    </T.deleteBtn>
-                  </T.todoItemBtnBox>
-                </T.listItem>
+                <TodoItem
+                  key={id}
+                  id={id}
+                  todo={todo}
+                  isCompleted={isCompleted}
+                  getTodoList={getTodoList}
+                />
               ))}
             </T.list>
           </T.listBox>
