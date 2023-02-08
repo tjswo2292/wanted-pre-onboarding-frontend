@@ -56,36 +56,50 @@ const todoStyle = {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    height: 2.5rem;
     margin-bottom: 1rem;
-    border: 1px solid #e1e2e3;
+    border: 0.1rem solid #e1e2e3;
 
     &:last-child {
       margin-bottom: 0;
     }
   `,
   checkBox: styled.input``,
-  contents: styled.p``,
+  contents: styled.p`
+    width: 10rem;
+    box-sizing: border-box;
+    overflow: scroll;
+  `,
   todoItemBtnBox: styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    height: inherit;
   `,
   updateBtn: styled.button`
+    display: flex;
+    align-items: center;
     margin-right: 0.5rem;
-    padding: 0.8rem;
-    font-weight: 900;
+    padding: 0.5rem;
+    height: 2rem;
+    font-weight: 600;
     background-color: #a6eda6;
     color: #fff;
     border: none;
   `,
   deleteBtn: styled.button`
-    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    height: 2rem;
     font-weight: bold;
     background-color: red;
     color: #fff;
     border: none;
   `,
-  editTodoInput: styled.input``,
+  editTodoInput: styled.input`
+    height: inherit;
+  `,
 };
 
 export default todoStyle;
