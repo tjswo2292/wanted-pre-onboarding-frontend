@@ -20,13 +20,18 @@ const Todo = () => {
   }, []);
 
   const handleCreateTodo = async () => {
-    try {
-      await todoCreateApi(todoContent).then(() => {
-        getTodoList();
-      });
-    } catch (error) {
-      console.log(error);
+    if (todoContent !== "") {
+      try {
+        await todoCreateApi(todoContent).then(() => {
+          getTodoList();
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      alert("내용을 채워주세요!!");
     }
+
     setTodoContent("");
   };
 
