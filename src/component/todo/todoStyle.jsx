@@ -98,7 +98,8 @@ const todoStyle = {
     border: none;
   `,
   editTodoInput: styled.input`
-    height: inherit;
+    width: 10rem;
+    height: 2rem;
   `,
 };
 
