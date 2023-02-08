@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-console */
 import React, { useState } from "react";
 import { todoUpdateApi, todoDeleteApi } from "../../api/authTodo";
 import T from "./todoStyle";

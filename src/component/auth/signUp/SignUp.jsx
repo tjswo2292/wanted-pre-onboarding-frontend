@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-console */
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ShareInput from "../../common/shareInput";

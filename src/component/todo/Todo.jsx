@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-console */
 import React, { useEffect, useState } from "react";
 import TodoItem from "./TodoItem";
 import { useNavigate } from "react-router-dom";
@@ -23,11 +21,11 @@ const Todo = () => {
 
   const handleCreateTodo = async () => {
     try {
-      await todoCreateApi(todoContent).then((res) => {
+      await todoCreateApi(todoContent).then(() => {
         getTodoList();
       });
     } catch (error) {
-      console.dir(error);
+      console.log(error);
     }
     setTodoContent("");
   };
