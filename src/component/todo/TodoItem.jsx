@@ -74,7 +74,9 @@ const TodoItem = ({ id, todo, isCompleted, getTodoList }) => {
         </T.todoItemBtnBox>
       ) : (
         <T.todoItemBtnBox>
-          <T.updateBtn onClick={handleEdit}>수 정</T.updateBtn>
+          <T.updateBtn onClick={handleEdit} data-testid="modify-input">
+            수 정
+          </T.updateBtn>
           <T.deleteBtn onClick={handleDeleteTodo}>삭 제</T.deleteBtn>
         </T.todoItemBtnBox>
       )}
