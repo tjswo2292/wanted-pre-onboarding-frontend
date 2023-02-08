@@ -62,10 +62,15 @@ const TodoItem = ({ id, todo, isCompleted, getTodoList }) => {
       )}
       {isEdit ? (
         <T.todoItemBtnBox>
-          <T.updateBtn onClick={() => handleUpdateTodo(isCompleted, id, editContent)}>
+          <T.updateBtn
+            onClick={() => handleUpdateTodo(isCompleted, id, editContent)}
+            data-testid="submit-button"
+          >
             제 출
           </T.updateBtn>
-          <T.deleteBtn onClick={handleEdit}>취 소</T.deleteBtn>
+          <T.deleteBtn onClick={handleEdit} data-testid="cancel-button">
+            취 소
+          </T.deleteBtn>
         </T.todoItemBtnBox>
       ) : (
         <T.todoItemBtnBox>
