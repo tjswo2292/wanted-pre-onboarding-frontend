@@ -29,6 +29,7 @@ const Todo = () => {
     } catch (error) {
       console.dir(error);
     }
+    setTodoContent("");
   };
 
   const getTodoList = async () => {
@@ -55,6 +56,7 @@ const Todo = () => {
           <T.todoAddBox>
             <T.addInput
               onChange={handleTodoInput}
+              value={todoContent}
               type="text"
               placeholder="Todo"
               data-testid="new-todo-input"
