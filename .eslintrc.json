@@ -17,7 +17,7 @@
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "react/prop-types": 0,
-    "no-console": ["error", { "allow": ["error"] }],
+    "no-console": "off",
     "curly": "error",
     "prettier/prettier": "error"
   }
