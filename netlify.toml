@@ -1,5 +1,0 @@
-[[redirects]]
-from = "/proxy/*"
-  to = "https://pre-onboarding-selection-task.shop/"  
-  status = 200
-  force = true
