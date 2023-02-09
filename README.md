@@ -99,3 +99,17 @@
 </ul>
 </div>
 </details>
+
+---
+
+## Commit Convention
+
+| Tag Name | Description           |
+| -------- | --------------------- |
+| feat     | 새로운 기능 추가      |
+| add      | 새로운 코드 라인 추가 |
+| style    | 코드포맷 수정         |
+| design   | UI style 변경         |
+| refactor | 코드 리팩토링         |
+| fix      | 에러, 버그 수정       |
+| docs     | 문서수정              |
