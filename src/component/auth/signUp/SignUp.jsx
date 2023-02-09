@@ -33,7 +33,7 @@ const SignUp = () => {
     try {
       await signUpApi(userInfo.email, userInfo.password).then(() => {
         alert("회원가입 성공");
-        navigate("/");
+        navigate("/sigin");
       });
     } catch (error) {
       alert(error.response.data.message);
