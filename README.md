@@ -1,6 +1,6 @@
 # **원티드 프리온보딩 프론트엔드 사전과제**
 
-## <u>배포링크</u>
+## [배포링크](https://tjswo2292.github.io/wanted-pre-onboarding-frontend/)
 
 #
 
@@ -113,3 +113,15 @@
 | refactor | 코드 리팩토링         |
 | fix      | 에러, 버그 수정       |
 | docs     | 문서수정              |
+
+---
+
+</br>
+
+## 배포하고 해결하지 못한 Error
+
+- github pages로 배포한 프로제트가 렌더링 되자마자 </br>
+  https://tjswo2292.github.io/wanted-pre-onboarding-frontend/signin 404
+  위의 경로로 api 요청이 된다. 로그인, 회원가입할 때 "/auth/로그인 or 회원가입"이 경로로 요청한건 있지만 "/signin" 경로를 설정하지도 요청을 보내지도 않았는데 error가 난다.
+  아직은 이유를 모르겠다. </br>
+  (이유를 찾아 블로그에 정리할 예정)
