@@ -50,16 +50,18 @@ const TodoItem = ({ id, todo, isCompleted, getTodoList }) => {
 
   return (
     <T.listItem>
-      <T.checkBox
-        onChange={(e) => handleChecked(e.target.checked, id, todo)}
-        type="checkbox"
-        checked={isCompleted}
-      />
-      {isEdit ? (
-        <T.editTodoInput onChange={handleEditContent} defaultValue={todo} />
-      ) : (
-        <T.contents>{isCompleted ? <s>{todo}</s> : todo}</T.contents>
-      )}
+      <T.label>
+        <T.checkBox
+          onChange={(e) => handleChecked(e.target.checked, id, todo)}
+          type="checkbox"
+          checked={isCompleted}
+        />
+        {isEdit ? (
+          <T.editTodoInput onChange={handleEditContent} defaultValue={todo} />
+        ) : (
+          <T.contents>{isCompleted ? <s>{todo}</s> : todo}</T.contents>
+        )}
+      </T.label>
       {isEdit ? (
         <T.todoItemBtnBox>
           <T.updateBtn
