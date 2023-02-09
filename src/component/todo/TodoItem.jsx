@@ -57,7 +57,11 @@ const TodoItem = ({ id, todo, isCompleted, getTodoList }) => {
           checked={isCompleted}
         />
         {isEdit ? (
-          <T.editTodoInput onChange={handleEditContent} defaultValue={todo} />
+          <T.editTodoInput
+            onChange={handleEditContent}
+            defaultValue={todo}
+            data-testid="modify-input"
+          />
         ) : (
           <T.contents>{isCompleted ? <s>{todo}</s> : todo}</T.contents>
         )}
