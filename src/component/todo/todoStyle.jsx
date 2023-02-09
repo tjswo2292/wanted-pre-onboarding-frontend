@@ -64,11 +64,18 @@ const todoStyle = {
       margin-bottom: 0;
     }
   `,
+  label: styled.label`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+  `,
   checkBox: styled.input``,
   contents: styled.p`
     width: 10rem;
     box-sizing: border-box;
     overflow: scroll;
+    margin-left: 10px;
   `,
   todoItemBtnBox: styled.div`
     display: flex;
@@ -100,6 +107,7 @@ const todoStyle = {
   editTodoInput: styled.input`
     width: 10rem;
     height: 2rem;
+    margin-left: 10px;
   `,
 };
 
