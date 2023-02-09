@@ -75,7 +75,7 @@ const todoStyle = {
     width: 10rem;
     box-sizing: border-box;
     overflow: scroll;
-    margin-left: 10px;
+    margin-left: 0.625rem;
   `,
   todoItemBtnBox: styled.div`
     display: flex;
@@ -107,7 +107,7 @@ const todoStyle = {
   editTodoInput: styled.input`
     width: 10rem;
     height: 2rem;
-    margin-left: 10px;
+    margin-left: 0.625rem;
   `,
 };
 

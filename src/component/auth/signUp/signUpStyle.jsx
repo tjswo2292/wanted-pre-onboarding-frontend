@@ -6,8 +6,8 @@ const SignUpStyle = {
     padding: 0.9375rem 0.625rem;
     width: 25rem;
     height: auto;
-    border: 1px solid #e1e2e3;
-    border-radius: 4px;
+    border: 0.0625rem solid #e1e2e3;
+    border-radius: 0.25rem;
     background-color: #fff;
   `,
   Container: styled.div`

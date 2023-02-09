@@ -10,18 +10,18 @@ const ShareStyle = {
     border-radius: 0.875rem;
 
     &:last-child {
-      margin-bottom: 30px;
+      margin-bottom: 1.875rem;
     }
 
     &::placeholder {
-      font-size: 11px;
+      font-size: 0.6875rem;
     }
   `,
   submitBtn: styled.button`
     display: block;
     text-align: center;
-    width: 100px;
-    height: 30px;
+    width: 6.25rem;
+    height: 1.875rem;
     cursor: pointer;
     font-weight: bold;
     color: #01a9fe;

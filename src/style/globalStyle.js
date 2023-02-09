@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     }
     button {
         background-color: #fff;
-        border: 1px solid #e1e2e3;
+        border: 0.0625rem solid #e1e2e3;
         border-radius: 0.25rem;
         cursor: pointer;
     }
