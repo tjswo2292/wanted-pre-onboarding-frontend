@@ -120,8 +120,9 @@
 
 ## 배포하고 해결하지 못한 Error
 
-- github pages로 배포한 프로제트가 렌더링 되자마자 </br>
+- github pages로 배포한 링크를 클릭하면 </br>
+  요청한적 없지만
   https://tjswo2292.github.io/wanted-pre-onboarding-frontend/signin 404
-  위의 경로로 api 요청이 된다. 로그인, 회원가입할 때 "/auth/로그인 or 회원가입"이 경로로 요청한건 있지만 "/signin" 경로를 설정하지도 요청을 보내지도 않았는데 error가 난다.
+  위의 경로로 api 요청이 된다. 로그인, 회원가입시에 "/auth/로그인 or 회원가입" 경로로 요청한건 있지만 "/signin" 경로를 설정하지도 요청을 보내지도 않았는데 error가 발생한다.
   아직은 이유를 모르겠다. </br>
   (이유를 찾아 블로그에 정리할 예정)
