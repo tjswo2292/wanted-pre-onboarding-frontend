@@ -1,16 +1,14 @@
 import axios from "axios";
 
-const PROXY = window.location.hostname === "localhost" ? "" : "/proxy";
-
 export const client = axios.create({
-  baseURL: `${PROXY}${process.env.REACT_APP_API_URL}`,
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     "Content-Type": "application/json",
   },
 });
 
 export const todoInstance = axios.create({
-  baseURL: `${PROXY}${process.env.REACT_APP_API_URL}`,
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     Authorization: `Bearer ${localStorage.getItem("token")}`,
     "Content-Type": "application/json",
