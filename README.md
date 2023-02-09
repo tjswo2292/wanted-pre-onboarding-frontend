@@ -2,7 +2,7 @@
 
 ## [배포링크](https://tjswo2292.github.io/wanted-pre-onboarding-frontend/)
 
-#
+</br>
 
 ## **프로젝트 실행방법**
 
