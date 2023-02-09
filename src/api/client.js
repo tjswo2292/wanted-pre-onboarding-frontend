@@ -17,11 +17,17 @@ export const todoInstance = axios.create({
   },
 });
 
-todoInstance.interceptors.request.use((config) => {
-  const access_token = localStorage.getItem("token");
+todoInstance.interceptors.request.use(
+  (config) => {
+    const access_token = localStorage.getItem("token");
 
-  if (access_token && config.headers) {
-    config.headers["Authorization"] = `Bearer ${access_token}`;
+    if (access_token && config.headers) {
+      config.headers["Authorization"] = `Bearer ${access_token}`;
+    }
+
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
   }
-  return config;
-});
+);
