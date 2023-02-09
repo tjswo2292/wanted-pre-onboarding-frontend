@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable no-undef */
 import axios from "axios";
 
 export const client = axios.create({

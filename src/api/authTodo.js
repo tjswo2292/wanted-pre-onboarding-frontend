@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable no-undef */
 import { todoInstance } from "./client";
 
 export const todoCreateApi = async (todo) => {
