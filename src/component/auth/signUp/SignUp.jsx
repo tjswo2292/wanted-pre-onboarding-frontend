@@ -33,7 +33,7 @@ const SignUp = () => {
     try {
       await signUpApi(userInfo.email, userInfo.password).then(() => {
         alert("회원가입 성공");
-        navigate("/sigin");
+        navigate("/signin");
       });
     } catch (error) {
       alert(error.response.data.message);
@@ -56,13 +56,13 @@ const SignUp = () => {
         </SignUpStyle.titleBox>
         <SignUpStyle.Form onSubmit={handleSubmit}>
           <ShareInput
-            placeholder="이메일을 입력해 주세요"
+            placeholder="이메일에 @를 포함해주세요"
             type="text"
             handleValue={handleEmail}
             testId="email-input"
           />
           <ShareInput
-            placeholder="비밀번호를 입력해 주세요"
+            placeholder="8자리 이상 입력해주세요"
             type="password"
             handleValue={handlePw}
             testId="password-input"
