@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import { publicApi } from '../api/core/axios';
 import { PATH } from '../api/core/constants';
 
-const TodoItem = ({ id, todo, isCompleted }) => {
+const TodoItem = ({ id, todo, isCompleted, handleDelete }) => {
   const [isUpdate, setIsUpdate] = useState(false);
   const [isChecked, setIsChecked] = useState(isCompleted);
   const [updateData, setUpdateData] = useState(todo);
@@ -36,15 +36,6 @@ const TodoItem = ({ id, todo, isCompleted }) => {
     setIsUpdate((prev) => !prev);
   };
 
-  const handleDelete = async () => {
-    try {
-      const response = await publicApi.DELETE(`${PATH.TODOS}/${id}`);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <Todo>
       <TodoCheck onChange={handleChecked} type="checkbox" checked={isChecked} />
@@ -66,7 +57,7 @@ const TodoItem = ({ id, todo, isCompleted }) => {
         ) : (
           <TodoUpdate onClick={handleUpdate}>수 정</TodoUpdate>
         )}
-        <TodoDelete onClick={handleDelete}>삭 제</TodoDelete>
+        <TodoDelete onClick={() => handleDelete(id)}>삭 제</TodoDelete>
       </TodoButtonBox>
     </Todo>
   );
