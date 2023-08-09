@@ -14,7 +14,7 @@ const CreateTodo = () => {
     setTodo(todoRef.current.value);
   };
 
-  const getTodo = async () => {
+  const getUserTodoList = async () => {
     try {
       const response = await publicApi.GET(PATH.TODOS);
       const { data } = response;
@@ -34,7 +34,8 @@ const CreateTodo = () => {
       console.log(error);
     }
 
-    getTodo();
+    setTodo('');
+    getUserTodoList();
   };
 
   const handleDelete = async (todoId) => {
@@ -44,23 +45,24 @@ const CreateTodo = () => {
       console.log(error);
     }
 
-    getTodo();
+    getUserTodoList();
   };
 
   useEffect(() => {
-    getTodo();
+    getUserTodoList();
   }, []);
 
   return (
     <Box>
-      <TodoInputForm>
+      <TodoInputForm onSubmit={handleOnSubmit}>
         <TodoInput
           ref={todoRef}
           type="text"
           onChange={handleOnChange}
           placeholder="Todo 입력하세요."
+          value={todo}
         />
-        <TodoCreateButton onClick={handleOnSubmit}>추가</TodoCreateButton>
+        <TodoCreateButton type="submit">추가</TodoCreateButton>
       </TodoInputForm>
       <TodoListBox>
         {fetchTodo.map(({ id, isCompleted, todo }) => (
