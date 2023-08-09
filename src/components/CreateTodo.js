@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { styled } from 'styled-components';
 import { publicApi } from '../api/core/axios';
 import { PATH } from '../api/core/constants';
@@ -6,7 +6,6 @@ import TodoItem from './TodoItem';
 
 const CreateTodo = () => {
   const [todo, setTodo] = useState('');
-  const [createdTodo, setCreateTodo] = useState({});
   const [fetchTodo, setFetchTodo] = useState([]);
 
   const todoRef = useRef(null);
@@ -15,51 +14,63 @@ const CreateTodo = () => {
     setTodo(todoRef.current.value);
   };
 
+  const getTodo = async () => {
+    try {
+      const response = await publicApi.GET(PATH.TODOS);
+      const { data } = response;
+
+      setFetchTodo(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleOnSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await publicApi.POST(PATH.TODOS, { todo });
-      setCreateTodo(response.data);
-
-      return response;
     } catch (error) {
       console.log(error);
     }
 
-    setTodo('');
+    getTodo();
+  };
+
+  const handleDelete = async (todoId) => {
+    try {
+      const response = await publicApi.DELETE(`${PATH.TODOS}/${todoId}`);
+    } catch (error) {
+      console.log(error);
+    }
+
+    getTodo();
   };
 
   useEffect(() => {
-    const getTodo = async () => {
-      try {
-        const response = await publicApi.GET(PATH.TODOS);
-        const { data } = response;
-
-        setFetchTodo(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
     getTodo();
-  }, [createdTodo]);
+  }, []);
 
   return (
     <Box>
-      <TodoInputForm onSubmit={handleOnSubmit}>
+      <TodoInputForm>
         <TodoInput
           ref={todoRef}
           type="text"
           onChange={handleOnChange}
-          value={todo}
           placeholder="Todo 입력하세요."
         />
-        <TodoCreateButton>추가</TodoCreateButton>
+        <TodoCreateButton onClick={handleOnSubmit}>추가</TodoCreateButton>
       </TodoInputForm>
       <TodoListBox>
         {fetchTodo.map(({ id, isCompleted, todo }) => (
-          <TodoItem key={id} id={id} todo={todo} isCompleted={isCompleted} />
+          <TodoItem
+            key={id}
+            id={id}
+            todo={todo}
+            isCompleted={isCompleted}
+            handleDelete={handleDelete}
+          />
         ))}
       </TodoListBox>
     </Box>
