@@ -13,8 +13,12 @@ export const publicInstance = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${accessTokenManage.GET_TOKEN()}`,
   },
+});
+
+publicInstance.interceptors.request.use((config) => {
+  config.headers.Authorization = `Bearer ${accessTokenManage.GET_TOKEN()}`;
+  return config;
 });
 
 export const authApi = {
@@ -25,8 +29,8 @@ export const authApi = {
 };
 
 export const publicApi = {
-  GET: async (path, option) => {
-    const response = await publicInstance.get(path, option);
+  GET: async (path) => {
+    const response = await publicInstance.get(path);
     return response;
   },
   POST: async (path, body) => {
