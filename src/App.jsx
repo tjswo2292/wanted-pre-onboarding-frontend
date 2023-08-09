@@ -1,6 +1,6 @@
-import Router from '../src/router/Router';
+import Router from './router/Router';
 
-import GlobalStyle from '../src/style/globalstyle';
+import GlobalStyle from './style/globalstyle';
 
 function App() {
   return (
