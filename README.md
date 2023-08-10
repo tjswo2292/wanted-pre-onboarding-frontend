@@ -28,6 +28,8 @@ https://master.deflbk2bnkcbk.amplifyapp.com/
 - Todo
   - create
   - check
+    - 수정 버튼을 클릭하고도 변경가능
+    - 수정 버튼을 클릭하지 않고도 변경가능
   - update
   - delete
 
