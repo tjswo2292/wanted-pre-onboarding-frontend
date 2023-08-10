@@ -5,7 +5,7 @@ import { authApi } from '../api/core/axios';
 import { accessTokenManage } from '../util/storage';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const UserForm = ({ apiPath, title }) => {
+const UserForm = ({ apiPath, title, testId }) => {
   const [inputValid, setInputValid] = useState({
     email: false,
     password: false,
@@ -125,11 +125,7 @@ const UserForm = ({ apiPath, title }) => {
         type="password"
         onChange={checkPassword}
       />
-      <SubmitButton
-        data-testid="signin-button"
-        type="submit"
-        disabled={ableSubmit}
-      >
+      <SubmitButton data-testid={testId} type="submit" disabled={ableSubmit}>
         {title}
       </SubmitButton>
     </FormBox>
