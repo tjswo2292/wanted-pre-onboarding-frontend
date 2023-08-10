@@ -2,15 +2,17 @@ import axios from 'axios';
 
 import { accessTokenManage } from '../../util/storage';
 
+const BASE_URL = 'https://www.pre-onboarding-selection-task.shop/';
+
 export const authInstance = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL,
+  baseURL: BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
 export const publicInstance = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL,
+  baseURL: BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
