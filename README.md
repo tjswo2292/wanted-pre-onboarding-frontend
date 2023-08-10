@@ -1,6 +1,37 @@
-# 원티드 프리온보딩 인턴십 사전 과제
+# 원티드 프리온보딩 인턴십 사전 과제 [최선재]
 
-## commit convention
+### 배포링크
+
+https://master.deflbk2bnkcbk.amplifyapp.com/
+
+### **프로젝트 실행방법**
+
+    npm install
+    npm start
+
+## **개발스택**
+
+### Front-End
+
+- React
+- React-router
+- Styled-components
+- Axios
+
+## 상세기능
+
+- Auth
+
+  - signin
+  - signup
+
+- Todo
+  - create
+  - check
+  - update
+  - delete
+
+### commit convention
 
 | Tag Name | Description      |
 | -------- | ---------------- |
