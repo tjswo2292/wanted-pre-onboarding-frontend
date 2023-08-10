@@ -10,12 +10,22 @@ const TodoItem = ({ id, todo, isCompleted, handleDelete }) => {
   const [updateData, setUpdateData] = useState(todo);
 
   const inputRef = useRef(null);
+  const checkBoxRef = useRef(null);
 
   const handleUpdate = () => {
     setIsUpdate((prev) => !prev);
   };
 
-  const handleChecked = () => {
+  const handleChecked = async () => {
+    try {
+      const response = await publicApi.PUT(`${PATH.TODOS}/${id}`, {
+        todo: updateData,
+        isCompleted: checkBoxRef.current.checked,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
     setIsChecked((prev) => !prev);
   };
 
@@ -38,7 +48,12 @@ const TodoItem = ({ id, todo, isCompleted, handleDelete }) => {
 
   return (
     <Todo>
-      <TodoCheck onChange={handleChecked} type="checkbox" checked={isChecked} />
+      <TodoCheck
+        ref={checkBoxRef}
+        onChange={handleChecked}
+        type="checkbox"
+        checked={isChecked}
+      />
       {isUpdate ? (
         <TodoInput
           onChange={handleUpdateTodo}
